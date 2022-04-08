@@ -50,6 +50,13 @@ class InputAbsensi : DialogFragment() {
             kalender.set(Calendar.DAY_OF_MONTH,dayOfMonth)
 
             updateLabel(kalender)
+
+        }
+
+        binding.etDate.setOnClickListener{
+            DatePickerDialog(requireContext(), pilihTanggal, kalender.get(Calendar.YEAR),
+                kalender.get(Calendar.MONTH),
+                kalender.get(Calendar.DAY_OF_MONTH)).show()
         }
 
         binding.btnSave.setOnClickListener {
