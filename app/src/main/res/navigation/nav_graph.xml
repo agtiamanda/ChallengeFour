@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/signInFragment">
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.challengefour.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.challengefour.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.challengefour.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_inputAbsensi"
+            app:destination="@id/inputAbsensi" />
+        <action
+            android:id="@+id/action_homeFragment_to_editAbsensi"
+            app:destination="@id/editAbsensi" />
+        <action
+            android:id="@+id/action_homeFragment_to_editAbsensi2"
+            app:destination="@id/editAbsensi" />
+        <action
+            android:id="@+id/action_homeFragment_to_editAbsensi3"
+            app:destination="@id/editAbsensi" />
+    </fragment>
+    <dialog
+        android:id="@+id/inputAbsensi"
+        android:name="com.example.challengefour.InputAbsensi"
+        android:label="fragment_input_absensi"
+        tools:layout="@layout/fragment_input_absensi" >
+        <action
+            android:id="@+id/action_inputAbsensi_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/editAbsensi"
+        android:name="com.example.challengefour.EditAbsensi"
+        android:label="fragment_edit_absensi"
+        tools:layout="@layout/fragment_edit_absensi" >
+        <action
+            android:id="@+id/action_editAbsensi_to_inputAbsensi"
+            app:destination="@id/inputAbsensi" />
+    </dialog>
+</navigation>

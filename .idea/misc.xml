@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/drawable/ic_btn_add.xml" value="0.107" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/drawable/ic_clock.xml" value="0.107" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/activity_home.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/activity_input_absen.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/activity_login.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/activity_main.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/coba.xml" value="0.15217391304347827" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/content_sign_up.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/fragment_edit_absensi.xml" value="0.15217391304347827" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/fragment_first.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/fragment_input_absensi.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/fragment_log.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/fragment_second.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/fragment_second2.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/fragment_sign.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/fragment_sign_in.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/fragment_sign_up.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Challengefour/app/src/main/res/layout/item_absen.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
