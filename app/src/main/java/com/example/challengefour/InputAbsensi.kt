@@ -40,6 +40,7 @@ class InputAbsensi : DialogFragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mDb = AbsenDatabase.getInstance(requireContext())
 
 
         val kalender = Calendar.getInstance()
@@ -64,7 +65,7 @@ class InputAbsensi : DialogFragment() {
                 )
                 GlobalScope.async {
                     val hasil = mDb?.absenDao()?.insertAbsen(objekAbsen)
-                    runBlocking(Dispatchers.Main) {
+                    runBlocking{
                         if(hasil != 0.0.toLong()){
                             Toast.makeText(context, "Berhasil Ditambahkan", Toast.LENGTH_SHORT).show()
                         }else{

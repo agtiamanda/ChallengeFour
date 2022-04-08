@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
         binding.rvAbsen.adapter = adapter
         fetchData()
         binding.fabAdd.setOnClickListener {
-            findNavController().navigate(R.id.action_inputAbsensi_to_homeFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_inputAbsensi)
         }
     }
 
@@ -45,6 +45,12 @@ class HomeFragment : Fragment() {
         GlobalScope.launch {
             val listAbsensi = mDb?.absenDao()?.getAllAbsen()
             runBlocking(Dispatchers.Main) {
+                if(listAbsensi.isNullOrEmpty()){
+//                    binding.rvAbsen.visibility = View.GONE
+                }else{
+//                    binding.rvAbsen.visibility = View.VISIBLE
+//                    binding.ivClock.visibility = View.GONE
+                }
                 listAbsensi?.let {
                     adapter.setData(it)
 
