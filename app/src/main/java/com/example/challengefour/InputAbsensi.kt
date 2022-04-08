@@ -57,6 +57,7 @@ class InputAbsensi : DialogFragment() {
             DatePickerDialog(requireContext(), pilihTanggal, kalender.get(Calendar.YEAR),
                 kalender.get(Calendar.MONTH),
                 kalender.get(Calendar.DAY_OF_MONTH)).show()
+
         }
 
         binding.btnSave.setOnClickListener {
@@ -75,6 +76,7 @@ class InputAbsensi : DialogFragment() {
                     runBlocking{
                         if(hasil != 0.0.toLong()){
                             Toast.makeText(context, "Berhasil Ditambahkan", Toast.LENGTH_SHORT).show()
+                            findNavController().navigate(R.id.action_inputAbsensi_to_homeFragment)
                         }else{
                             Toast.makeText(context, "Gagal Ditambahkan", Toast.LENGTH_SHORT).show()
                         }

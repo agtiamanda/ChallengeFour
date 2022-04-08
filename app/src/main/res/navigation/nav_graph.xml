@@ -61,7 +61,7 @@
         android:label="fragment_edit_absensi"
         tools:layout="@layout/fragment_edit_absensi" >
         <action
-            android:id="@+id/action_editAbsensi_to_inputAbsensi"
-            app:destination="@id/inputAbsensi" />
+            android:id="@+id/action_editAbsensi_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </dialog>
 </navigation>

@@ -33,6 +33,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mDb = AbsenDatabase.getInstance(requireContext())
         adapter = AbsenAdapter()
         binding.rvAbsen.adapter = adapter
         fetchData()
@@ -43,15 +44,15 @@ class HomeFragment : Fragment() {
 
     fun fetchData() {
         GlobalScope.launch {
-            val listAbsensi = mDb?.absenDao()?.getAllAbsen()
+            val listAbsen = mDb?.absenDao()?.getAllAbsen()
             runBlocking(Dispatchers.Main) {
-                if(listAbsensi.isNullOrEmpty()){
-//                    binding.rvAbsen.visibility = View.GONE
+                if(listAbsen.isNullOrEmpty()){
+                    binding.rvAbsen.visibility = View.GONE
                 }else{
-//                    binding.rvAbsen.visibility = View.VISIBLE
-//                    binding.ivClock.visibility = View.GONE
+                    binding.rvAbsen.visibility = View.VISIBLE
+                    binding.ivClock.visibility = View.GONE
                 }
-                listAbsensi?.let {
+                listAbsen?.let {
                     adapter.setData(it)
 
                 }
