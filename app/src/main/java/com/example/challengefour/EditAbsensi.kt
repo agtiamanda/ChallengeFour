@@ -54,13 +54,14 @@ class EditAbsensi() : DialogFragment() {
                 runBlocking(Dispatchers.Main) {
                     if(result!=0){
                         Toast.makeText(requireContext(), "data telah diubah", Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.action_editAbsensi_to_homeFragment)
+//                        findNavController().navigate(R.id.action_editAbsensi_to_homeFragment)
                     }else{
                         Toast.makeText(requireContext(), "data belum terubah", Toast.LENGTH_SHORT).show()
                     }
                 }
-                dialog?.dismiss()
+
             }
+            dialog?.dismiss()
         }
 
 
