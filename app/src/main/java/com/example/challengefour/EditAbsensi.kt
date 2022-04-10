@@ -1,5 +1,6 @@
 package com.example.challengefour
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,6 +15,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class EditAbsensi() : DialogFragment() {
@@ -37,6 +40,22 @@ class EditAbsensi() : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mDb = AbsenDatabase.getInstance(requireContext())
+
+        val kalender = Calendar.getInstance()
+        val pilihTanggal = DatePickerDialog.OnDateSetListener(){ view, year, month, dayOfMonth->
+            kalender.set(Calendar.YEAR,year)
+            kalender.set(Calendar.MONTH,month)
+            kalender.set(Calendar.DAY_OF_MONTH,dayOfMonth)
+            updateLabel(kalender)
+
+        }
+
+        binding.etDate.setOnClickListener{
+            DatePickerDialog(requireContext(), pilihTanggal, kalender.get(Calendar.YEAR),
+                kalender.get(Calendar.MONTH),
+                kalender.get(Calendar.DAY_OF_MONTH)).show()
+
+        }
 
         if(this::listAbsen.isInitialized){
             binding.etKelas.setText(listAbsen.kelas)
@@ -67,5 +86,12 @@ class EditAbsensi() : DialogFragment() {
 
     }
 
+    private fun updateLabel(kalender: Calendar) {
+            val format = "dd/MM/yyyy"
+            val sdf = SimpleDateFormat(format, Locale.CHINA)
+            binding.etDate.setText(sdf.format(kalender.time))
 
-}
+        }
+
+    }
+
