@@ -22,6 +22,9 @@ import java.util.*
 class EditAbsensi() : DialogFragment() {
     lateinit var listAbsen: DaftarJam
     private var mDb: AbsenDatabase?=null
+
+    lateinit var repo: AbsenRepo
+
     constructor(listAbsen:DaftarJam): this(){
         this.listAbsen= listAbsen
 
@@ -39,6 +42,8 @@ class EditAbsensi() : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        repo = AbsenRepo(requireContext())
         mDb = AbsenDatabase.getInstance(requireContext())
 
         val kalender = Calendar.getInstance()
@@ -69,7 +74,7 @@ class EditAbsensi() : DialogFragment() {
             objekAbsen.jamAbsen = binding.etAbsen.text.toString()
 
             GlobalScope.async {
-                val result = mDb?.absenDao()?.updateAbsen(objekAbsen)
+                val result = repo.editAbsen(objekAbsen)
                 runBlocking(Dispatchers.Main) {
                     if(result!=0){
                         Toast.makeText(requireContext(), "data telah diubah", Toast.LENGTH_SHORT).show()

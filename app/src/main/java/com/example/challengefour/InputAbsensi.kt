@@ -30,6 +30,8 @@ class InputAbsensi : DialogFragment() {
 
     private var mDb: AbsenDatabase?=null
 
+    lateinit var repo: AbsenRepo
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +42,7 @@ class InputAbsensi : DialogFragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        repo = AbsenRepo(requireContext())
         mDb = AbsenDatabase.getInstance(requireContext())
 
 
@@ -72,9 +75,9 @@ class InputAbsensi : DialogFragment() {
                     binding.etAbsen.text.toString()
                 )
                 GlobalScope.async {
-                    val hasil = mDb?.absenDao()?.insertAbsen(objekAbsen)
+                    val hasil = repo.insertAbsen(objekAbsen)
                     runBlocking{
-                        if(hasil != 0.0.toLong()){
+                        if(hasil != 0.toLong()){
                             Toast.makeText(context, "Berhasil Ditambahkan", Toast.LENGTH_SHORT).show()
                             findNavController().navigate(R.id.action_inputAbsensi_to_homeFragment)
                         }else{

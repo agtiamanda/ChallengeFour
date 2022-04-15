@@ -12,6 +12,9 @@ import kotlinx.coroutines.async
 class AbsenAdapter: RecyclerView.Adapter<AbsenAdapter.ViewHolder>(){
     private val listAbsen= mutableListOf<DaftarJam>()
     //memanggil secondary constructor dari EditAbsensi
+
+    lateinit var repo: AbsenRepo
+
     class ViewHolder(val binding: ItemAbsenBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -41,7 +44,8 @@ class AbsenAdapter: RecyclerView.Adapter<AbsenAdapter.ViewHolder>(){
                 AlertDialog.Builder(it.context).setPositiveButton("Ya"){ p0, p1 ->
                     val mDb = AbsenDatabase.getInstance(holder.itemView.context)
                     GlobalScope.async {
-                        val result = mDb?.absenDao()?.deleteAbsen(listAbsen[position])
+                        val result = repo.deleteAbsen(listAbsen[position])
+
                         (holder.itemView.context as MainActivity).runOnUiThread{
                             if (result != 0){
                                 Toast.makeText(it.context, "${listAbsen[position].kelas} berhasil dihapus!", Toast.LENGTH_SHORT).show()

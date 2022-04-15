@@ -21,6 +21,8 @@ class HomeFragment : Fragment() {
     private var mDb : AbsenDatabase?= null
     private lateinit var adapter : AbsenAdapter
 
+    lateinit var repo: AbsenRepo
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +35,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        repo = AbsenRepo(requireContext())
         mDb = AbsenDatabase.getInstance(requireContext())
         adapter = AbsenAdapter()
         binding.rvAbsen.adapter = adapter
@@ -44,7 +47,7 @@ class HomeFragment : Fragment() {
 
     fun fetchData() {
         GlobalScope.launch {
-            val listAbsen = mDb?.absenDao()?.getAllAbsen()
+            val listAbsen = repo.getAllAbsen()
             runBlocking(Dispatchers.Main) {
                 if(listAbsen.isNullOrEmpty()){
                     binding.rvAbsen.visibility = View.GONE
